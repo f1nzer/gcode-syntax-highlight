@@ -1,0 +1,26 @@
+{
+    "name": "gcode",
+    "displayName": "GCode",
+    "description": "Syntax Highlight for GCode",
+    "version": "0.0.1",
+    "publisher": "F1nZeR",
+    "engines": {
+        "vscode": "^1.18.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "gcode",
+            "aliases": ["GCode", "G-Code", "gcode"],
+            "extensions": [".nc",".ngc",".prg",".mpf",".gcode"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "gcode",
+            "scopeName": "source.gcode",
+            "path": "./syntaxes/gcode.tmLanguage.json"
+        }]
+    }
+}

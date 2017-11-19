@@ -1,0 +1,70 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "gcode",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"comment": "Numbers",
+			"match": "\\b\\d+\\.?\\d+\\b",
+			"name": "constant.numeric.gcode"
+		},
+		{
+			"comment": "G commands",
+			"name": "support.variable.gcode",
+			"match": "\\bG\\d+\\b"
+		},
+		{
+			"comment": "M commands",
+			"name": "support.class.gcode",
+			"match": "\\bM\\d+\\b"
+		},
+		{
+			"comment": "Parameters",
+			"name": "support.function.gcode",
+			"match": "\\b\\w\\b"
+		},
+		{
+			"begin": "#|//",
+			"captures": {
+			  "0": { "name": "punctuation.definition.comment.gcode" }
+			},
+			"comment": "Comments",
+			"end": "$\\n?",
+			"name": "comment.line.number-sign.gcode"
+		},
+		{
+		  "begin": "/\\*",
+		  "captures": {
+			"0": { "name": "punctuation.definition.comment.gcode" }
+		  },
+		  "comment": "Block comments",
+		  "end": "\\*/",
+		  "name": "comment.block.gcode"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.gcode",
+				"match": "\\b(IF|THEN|AND|OR|WHILE|GOTO)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.gcode",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.gcode",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.gcode"
+}

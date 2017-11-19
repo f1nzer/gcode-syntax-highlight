@@ -1,2 +1,2 @@
 # gcode-syntax-highlight
-G-Code highlighting
+G-Code highlight
